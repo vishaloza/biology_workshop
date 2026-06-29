@@ -1,0 +1,28 @@
+{
+  "name": "biology-higher-dim-slides",
+  "private": true,
+  "type": "module",
+  "version": "5.0.0",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 5173",
+    "build:portable": "vite build --config vite.portable.config.mjs",
+    "pdf": "node scripts/build-pdfs.mjs",
+    "pdf:notes": "WITH_NOTES=1 node scripts/build-pdfs.mjs",
+    "pdf:student": "STUDENT=1 node scripts/build-pdfs.mjs",
+    "sync": "node scripts/sync-server.mjs",
+    "present": "npm run build && npm run sync"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4",
+    "playwright": "^1.44",
+    "vite": "^5",
+    "vite-plugin-singlefile": "^2.3.3",
+    "ws": "^8.21.0"
+  }
+}

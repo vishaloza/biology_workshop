@@ -1,0 +1,1 @@
+Use PDF decks for guaranteed offline presenting. React source is included for editing and browser presentation.
