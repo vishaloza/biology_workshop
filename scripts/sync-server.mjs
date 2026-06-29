@@ -18,7 +18,7 @@
 
 import { createServer } from 'http';
 import { WebSocketServer } from 'ws';
-import { readFileSync, existsSync } from 'fs';
+import { readFileSync, existsSync, statSync } from 'fs';
 import { resolve, join, extname, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { networkInterfaces } from 'os';
@@ -45,8 +45,10 @@ const httpServer = createServer((req, res) => {
   }
   const urlPath = req.url.split('?')[0];
   let filePath = join(DIST, urlPath);
-  // SPA fallback: any non-asset path → index.html
-  if (!existsSync(filePath) || filePath === DIST) {
+  // SPA fallback: missing paths and directories all serve index.html
+  try {
+    if (statSync(filePath).isDirectory()) filePath = join(DIST, 'index.html');
+  } catch {
     filePath = join(DIST, 'index.html');
   }
   const ext = extname(filePath);
