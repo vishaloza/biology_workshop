@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "ws": "^8.21.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4",
     "playwright": "^1.44",
     "vite": "^5",
-    "vite-plugin-singlefile": "^2.3.3",
-    "ws": "^8.21.0"
+    "vite-plugin-singlefile": "^2.3.3"
   }
 }
